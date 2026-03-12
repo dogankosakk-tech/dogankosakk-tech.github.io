@@ -12,6 +12,25 @@
   <link rel="stylesheet" href="/package.css" />
 </head>
 <body>
+  <script>
+  (function() {
+    var host = window.location.hostname;
+    var path = window.location.pathname.replace(/\/$/, '') || '/';
+    var appUrl = 'https://casagaz-tech-727b6ab4fe46.herokuapp.com';
+    if (host === 'casagaz.tech' || host === 'www.casagaz.tech') {
+      if (path === '/admin' || path === '/portfolio') {
+        window.location.replace(appUrl + path);
+        return;
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href="/admin"], a[href="/portfolio"], a[href="/en/admin"], a[href="/en/portfolio"]').forEach(function(a) {
+          var h = a.getAttribute('href');
+          if (h && (h === '/admin' || h === '/portfolio' || h === '/en/admin' || h === '/en/portfolio')) a.setAttribute('href', appUrl + h);
+        });
+      });
+    }
+  })();
+  </script>
   <div id="noise"></div>
   <div id="cursor-glow"></div>
 
