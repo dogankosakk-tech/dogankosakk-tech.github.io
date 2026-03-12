@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yapılan İşler | CASAGAZ TECH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/portfolio.css" />
+</head>
+<body>
+  <div id="noise"></div>
+  <header class="header scrolled">
+    <nav class="nav container">
+      <a href="/" class="logo">
+        <span class="logo-text">CASAGAZ</span>
+        <span class="logo-accent">TECH</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#services" data-i18n="nav.services">Hizmetler</a></li>
+        <li><a href="/#packages" data-i18n="nav.packages">Paketler</a></li>
+        <li><a href="/portfolio" data-i18n="nav.portfolio">Yapılan İşler</a></li>
+        <li><a href="/#process" data-i18n="nav.process">Süreç</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">İletişim</a></li>
+        <li class="lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="tr" aria-label="Türkçe">TR</button>
+          <span class="lang-sep">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </li>
+      </ul>
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main class="portfolio-page">
+    <section class="container portfolio-main">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="portfolio.tag">Portfolio</span>
+        <h1 class="section-title" data-i18n="portfolio.title">Yapılan İşler</h1>
+        <p class="section-desc" data-i18n="portfolio.desc">Tamamladığımız mağaza kurulumları ve fotoğraf/video projeleri.</p>
+      </div>
+
+      <div id="portfolio-choice" class="portfolio-choice">
+        <button type="button" class="portfolio-option portfolio-option--photo" data-category="photo" aria-label="Fotoğraf ve video işleri">
+          <span class="portfolio-option-text" data-i18n="portfolio.photo">Fotoğraf</span>
+          <span class="portfolio-option-sub" data-i18n="portfolio.photoSub">Fotoğraf & Video</span>
+        </button>
+        <button type="button" class="portfolio-option portfolio-option--website" data-category="website" aria-label="Website işleri">
+          <span class="portfolio-option-text" data-i18n="portfolio.website">Website</span>
+          <span class="portfolio-option-sub" data-i18n="portfolio.websiteSub">Mağaza & Kurulum</span>
+        </button>
+      </div>
+
+      <div id="portfolio-results" class="portfolio-results" aria-hidden="true">
+        <div class="portfolio-results-header">
+          <button type="button" class="portfolio-back btn btn-ghost" id="portfolio-back" aria-label="Geri">
+            <span class="portfolio-back-icon">←</span> <span data-i18n="portfolio.back">Geri</span>
+          </button>
+          <h2 id="portfolio-results-title" class="portfolio-results-title">Website</h2>
+        </div>
+        <div id="portfolio-grid" class="portfolio-grid"></div>
+        <div id="portfolio-empty" class="portfolio-empty" style="display:none;" data-i18n="portfolio.empty">Bu kategoride henüz iş bulunmuyor.</div>
+      </div>
+
+      <div id="portfolio-loading" class="portfolio-loading" data-i18n="portfolio.loading">Yükleniyor…</div>
+    </section>
+  </main>
+
+  <!-- Popup: Website önizleme (iframe) -->
+  <div id="portfolio-popup-website" class="portfolio-popup" role="dialog" aria-modal="true" aria-labelledby="popup-website-title">
+    <div class="portfolio-popup-backdrop" data-close-popup></div>
+    <div class="portfolio-popup-box portfolio-popup-website">
+      <div class="portfolio-popup-header">
+        <h2 id="popup-website-title" class="portfolio-popup-title" data-i18n="portfolio.preview">Önizleme</h2>
+        <a id="popup-website-open-tab" href="#" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" data-i18n="portfolio.openNewTab">Yeni sekmede aç</a>
+        <button type="button" class="portfolio-popup-close" data-close-popup aria-label="Kapat">&times;</button>
+      </div>
+      <div class="portfolio-popup-iframe-wrap">
+        <iframe id="popup-website-iframe" title="Site önizlemesi" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+        <div id="popup-website-screenshot-wrap" class="portfolio-popup-screenshot-wrap" style="display:none;">
+          <img id="popup-website-screenshot-img" src="" alt="Site önizlemesi" />
+        </div>
+        <div id="popup-website-screenshot-loading" class="portfolio-popup-screenshot-loading" style="display:none;">
+          <span class="portfolio-popup-screenshot-spinner" aria-hidden="true"></span>
+          <p data-i18n="portfolio.previewLoading">Önizleme yükleniyor…</p>
+        </div>
+        <div id="popup-website-blocked" class="portfolio-popup-blocked" style="display:none;">
+          <p data-i18n="portfolio.previewFailed">Önizleme alınamadı. Siteyi aşağıdaki butonla yeni sekmede açabilirsiniz.</p>
+          <a id="popup-website-fallback-link" href="#" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="portfolio.openNewTab">Yeni sekmede aç</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup: Fotoğraf / Video galerisi -->
+  <div id="portfolio-popup-gallery" class="portfolio-popup" role="dialog" aria-modal="true" aria-labelledby="popup-gallery-title">
+    <div class="portfolio-popup-backdrop" data-close-popup></div>
+    <div class="portfolio-popup-box portfolio-popup-gallery">
+      <div class="portfolio-popup-header">
+        <h2 id="popup-gallery-title" class="portfolio-popup-title" data-i18n="portfolio.gallery">Galeri</h2>
+        <button type="button" class="portfolio-popup-close" data-close-popup aria-label="Kapat">&times;</button>
+      </div>
+      <div id="popup-gallery-content" class="portfolio-popup-gallery-content"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-cta">
+      <div class="container">
+        <h3 class="footer-cta-title" data-i18n="footer.ctaTitle">İletişime geçin</h3>
+        <p class="footer-cta-desc" data-i18n="footer.ctaDesc">Projeniz için teklif almak veya sorularınızı iletmek için bize yazın.</p>
+        <a href="/#contact" class="btn btn-primary" data-i18n="footer.ctaButton">İletişime geç</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="/" class="logo">
+          <span class="logo-text">CASAGAZ</span>
+          <span class="logo-accent">TECH</span>
+        </a>
+        <p class="footer-copy" data-i18n="footer.copy">© 2025 CASAGAZ TECH. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Yukarı çık" title="Yukarı çık">
+    <svg class="back-to-top-progress" viewBox="0 0 44 44" aria-hidden="true">
+      <circle class="back-to-top-track" cx="22" cy="22" r="20" fill="none" stroke-width="2" />
+      <circle class="back-to-top-fill" cx="22" cy="22" r="20" fill="none" stroke-width="2" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+    </svg>
+    <span class="back-to-top-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </span>
+  </button>
+
+  <script src="/i18n.js"></script>
+  <script src="/portfolio.js"></script>
+  <script src="/back-to-top.js"></script>
+</body>
+</html>

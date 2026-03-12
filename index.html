@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CASAGAZ TECH | E-Ticaret & Yapay Zeka Dijital Çözümler</title>
+  <meta name="description" content="Shopify mağaza kurulumu, yapay zeka destekli e-ticaret fotoğraf ve video üretimi. Profesyonel paketler." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/package.css" />
+</head>
+<body>
+  <div id="noise"></div>
+  <div id="cursor-glow"></div>
+
+  <header class="header">
+    <nav class="nav container">
+      <a href="/" class="logo">
+        <span class="logo-text">CASAGAZ</span>
+        <span class="logo-accent">TECH</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services" data-i18n="nav.services">Hizmetler</a></li>
+        <li><a href="#packages" data-i18n="nav.packages">Paketler</a></li>
+        <li><a href="/portfolio" data-i18n="nav.portfolio">Yapılan İşler</a></li>
+        <li><a href="#process" data-i18n="nav.process">Süreç</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">İletişim</a></li>
+        <li class="lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="tr" aria-label="Türkçe">TR</button>
+          <span class="lang-sep">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </li>
+      </ul>
+      <button class="nav-toggle" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div id="hero-3d" aria-hidden="true"></div>
+      <div class="hero-content container">
+        <div class="hero-badge" data-animate>
+          <span class="neon-dot"></span>
+          <span data-i18n="hero.badge">E-ticaret & yapay zeka çözümleri</span>
+        </div>
+        <h1 class="hero-title" data-animate>
+          <span class="line" data-i18n="hero.title1">Dijital</span>
+          <span class="line accent" data-i18n="hero.title2">Mağazanızı</span>
+          <span class="line" data-i18n="hero.title3">Birlikte Kuruyoruz</span>
+        </h1>
+        <p class="hero-desc" data-animate>
+          <span data-i18n="hero.desc">Shopify mağaza kurulumu, yapay zeka destekli ürün fotoğrafı ve video üretimi. Teslimata hazır, profesyonel içerik.</span>
+        </p>
+        <div class="hero-cta" data-animate>
+          <a href="#packages" class="btn btn-primary" data-i18n="hero.ctaPackages">Paketleri İncele</a>
+          <a href="#contact" class="btn btn-ghost" data-i18n="hero.ctaContact">İletişime Geç</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span class="scroll-text" data-i18n="hero.scroll">Keşfet</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <span class="section-tag" data-i18n="services.tag">Hizmetler</span>
+          <h2 class="section-title" data-i18n="services.title">Neler Sunuyoruz?</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service-card" data-animate data-tilt>
+            <div class="card-3d">
+              <div class="card-face card-front">
+                <div class="card-icon" style="--neon: var(--neon-blue);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+                </div>
+                <h3 data-i18n="services.shopifyTitle">Shopify Mağaza Kurulumu</h3>
+                <p data-i18n="services.shopifyDesc">Profesyonel tema seçimi, ödeme entegrasyonu ve teslimata hazır mağaza.</p>
+              </div>
+            </div>
+          </article>
+          <article class="service-card" data-animate data-tilt>
+            <div class="card-3d">
+              <div class="card-face card-front">
+                <div class="card-icon" style="--neon: var(--neon-green);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                </div>
+                <h3 data-i18n="services.photoTitle">Yapay Zeka Ürün Fotoğrafı</h3>
+                <p data-i18n="services.photoDesc">Ürün görselleriniz AI ile profesyonel arka plan ve stilize edilir.</p>
+              </div>
+            </div>
+          </article>
+          <article class="service-card" data-animate data-tilt>
+            <div class="card-3d">
+              <div class="card-face card-front">
+                <div class="card-icon" style="--neon: var(--neon-yellow);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                </div>
+                <h3 data-i18n="services.videoTitle">Yapay Zeka Ürün Videoları</h3>
+                <p data-i18n="services.videoDesc">Ürün tanıtım videoları oluşturulur ve size teslim edilir.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages" id="packages">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <span class="section-tag" data-i18n="packages.tag">Paketler</span>
+          <h2 class="section-title" data-i18n="packages.title">Size Uygun Paketi Seçin</h2>
+        </div>
+
+        <div class="package-cards" data-animate>
+          <a href="/paketler/website" class="package-card-link">
+            <div class="package-card-inner">
+              <div class="package-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+              </div>
+              <h3 class="package-card-title" data-i18n="packages.cardWebsiteTitle">Shopify Mağaza Kurulumu</h3>
+              <p class="package-card-desc" data-i18n="packages.cardWebsiteDesc">Tema, ödeme entegrasyonu ve teslimata hazır e-ticaret siteniz. Fiyatı özelleştirip talep oluşturun.</p>
+              <span class="package-card-cta" data-i18n="packages.cardCta">Paketi incele →</span>
+            </div>
+          </a>
+          <a href="/paketler/foto-video" class="package-card-link">
+            <div class="package-card-inner">
+              <div class="package-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              </div>
+              <h3 class="package-card-title" data-i18n="packages.cardPhotoTitle">Fotoğraf & Video</h3>
+              <p class="package-card-desc" data-i18n="packages.cardPhotoDesc">AI ürün fotoğrafı ve tanıtım videoları. Adet seçin, indirimli fiyatları görün.</p>
+              <span class="package-card-cta" data-i18n="packages.cardCta">Paketi incele →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <span class="section-tag" data-i18n="process.tag">Süreç</span>
+          <h2 class="section-title" data-i18n="process.title">Nasıl Çalışıyoruz?</h2>
+        </div>
+        <div class="process-steps">
+          <div class="process-step" data-animate>
+            <div class="step-num" style="--neon: var(--neon-blue);">01</div>
+            <h3 data-i18n="process.step1Title">Görüşme & Planlama</h3>
+            <p data-i18n="process.step1Desc">İhtiyaçlarınızı dinliyoruz, paket ve süreç planlanıyor.</p>
+          </div>
+          <div class="process-step" data-animate>
+            <div class="step-num" style="--neon: var(--neon-green);">02</div>
+            <h3 data-i18n="process.step2Title">Üretim</h3>
+            <p data-i18n="process.step2Desc">Mağaza kurulumu ve/veya AI fotoğraf/video üretimi yapılıyor.</p>
+          </div>
+          <div class="process-step" data-animate>
+            <div class="step-num" style="--neon: var(--neon-yellow);">03</div>
+            <h3 data-i18n="process.step3Title">Teslim & Destek</h3>
+            <p data-i18n="process.step3Desc">Çıktılar teslim edilir, revizyonlar ve destek sunulur.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-inner" data-animate>
+          <div class="contact-content">
+            <span class="section-tag" data-i18n="contact.tag">İletişim</span>
+            <h2 class="section-title" data-i18n="contact.title">Projenizi Konuşalım</h2>
+            <p data-i18n="contact.desc">Formu doldurup gönderin; mesajınız WhatsApp üzerinden bize iletilecektir.</p>
+            <a href="https://wa.me/905378792022" class="contact-whatsapp" target="_blank" rel="noopener" data-i18n="contact.whatsapp">WhatsApp: +90 537 879 20 22</a>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name" data-i18n="contact.nameLabel">Ad Soyad</label>
+              <input type="text" id="name" name="name" required data-i18n-placeholder="contact.namePlaceholder" placeholder="Adınız Soyadınız" />
+            </div>
+            <div class="form-group">
+              <label for="email" data-i18n="contact.emailLabel">E-posta</label>
+              <input type="email" id="email" name="email" required data-i18n-placeholder="contact.emailPlaceholder" placeholder="ornek@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="package" data-i18n="contact.packageLabel">İlgilendiğiniz Paket</label>
+              <select id="package" name="package">
+                <option value="">Seçiniz</option>
+                <option value="website-baslangic">Website – Başlangıç</option>
+                <option value="website-profesyonel">Website – Profesyonel</option>
+                <option value="website-kurumsal">Website – Kurumsal</option>
+                <option value="foto-baslangic">Fotoğraf paketi</option>
+                <option value="foto-video">Video paketi</option>
+                <option value="foto-karma">Karma paket</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message" data-i18n="contact.messageLabel">Mesajınız</label>
+              <textarea id="message" name="message" rows="4" data-i18n-placeholder="contact.messagePlaceholder" placeholder="Projeniz hakkında kısaca yazın..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" data-i18n="contact.submit">WhatsApp ile Gönder</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="/" class="logo">
+          <span class="logo-text">CASAGAZ</span>
+          <span class="logo-accent">TECH</span>
+        </a>
+        <p class="footer-copy" data-i18n="footer.copy">© 2025 CASAGAZ TECH. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Yukarı çık" title="Yukarı çık">
+    <svg class="back-to-top-progress" viewBox="0 0 44 44" aria-hidden="true">
+      <circle class="back-to-top-track" cx="22" cy="22" r="20" fill="none" stroke-width="2" />
+      <circle class="back-to-top-fill" cx="22" cy="22" r="20" fill="none" stroke-width="2" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+    </svg>
+    <span class="back-to-top-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </span>
+  </button>
+
+  <!-- Chatbot: 3D style + AI + Telegram -->
+  <div id="chatbot-widget" class="chatbot-widget">
+    <button type="button" class="chatbot-toggle" id="chatbot-toggle" aria-label="Sohbeti aç">
+      <span class="chatbot-toggle-inner">
+        <svg class="chatbot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+    </button>
+    <div class="chatbot-panel" id="chatbot-panel">
+      <div class="chatbot-panel-header">
+        <h3 data-i18n="chatbot.title">Sohbet</h3>
+        <button type="button" class="chatbot-close" id="chatbot-close" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages"></div>
+      <div class="chatbot-input-wrap">
+        <input type="text" class="chatbot-input" id="chatbot-input" data-i18n-placeholder="chatbot.placeholder" placeholder="Mesajınızı yazın..." maxlength="1000" />
+        <button type="button" class="chatbot-send" id="chatbot-send" data-i18n="chatbot.send">Gönder</button>
+      </div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="/chatbot.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="/i18n.js"></script>
+  <script src="/main.js"></script>
+  <script src="/back-to-top.js"></script>
+  <script src="/chatbot.js"></script>
+</body>
+</html>

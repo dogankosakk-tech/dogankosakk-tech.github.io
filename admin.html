@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yönetim | CASAGAZ TECH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/admin.css" />
+</head>
+<body class="admin-body">
+  <div id="admin-toast" class="admin-toast" aria-live="polite"></div>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <a href="/" class="admin-logo">
+        <span class="logo-text">CASAGAZ</span>
+        <span class="logo-accent">TECH</span>
+      </a>
+      <nav class="admin-nav">
+        <a href="/" class="admin-nav-link admin-nav-link--back" data-i18n="admin.backToSite">← Siteye dön</a>
+        <a href="/admin#orders" class="admin-nav-link admin-nav-link--page" data-page="orders">
+          <span class="admin-nav-icon" aria-hidden="true">📋</span>
+          <span>Siparişler</span>
+        </a>
+        <a href="/admin#portfolio" class="admin-nav-link admin-nav-link--page" data-page="portfolio">
+          <span class="admin-nav-icon" aria-hidden="true">🖼</span>
+          <span data-i18n="admin.portfolioNav">Yapılan İşler</span>
+        </a>
+        <a href="/portfolio" class="admin-nav-link admin-nav-link--external" target="_blank" rel="noopener">
+          <span class="admin-nav-icon" aria-hidden="true">↗</span>
+          <span>Portfolio (site)</span>
+        </a>
+      </nav>
+      <div class="admin-sidebar-footer">
+        <span class="admin-version" data-i18n="admin.version">Yönetim paneli</span>
+        <div class="lang-switcher admin-lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="tr" aria-label="Türkçe">TR</button>
+          <span class="lang-sep">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </div>
+      </div>
+    </aside>
+    <main class="admin-main">
+      <!-- Siparişler görünümü -->
+      <div id="admin-view-orders" class="admin-view" style="display:none;">
+        <header class="admin-header">
+          <h1 data-i18n="admin.ordersTitle">Siparişler</h1>
+          <p data-i18n="admin.ordersDesc">Gelen sipariş talepleri. Durumu güncelleyebilir, filtreleyebilirsiniz.</p>
+        </header>
+        <div class="admin-stats" id="admin-orders-stats">
+          <div class="admin-stat-card">
+            <span class="admin-stat-value" id="admin-stat-orders-total">0</span>
+            <span class="admin-stat-label" data-i18n="admin.statTotalOrders">Toplam sipariş</span>
+          </div>
+          <div class="admin-stat-card admin-stat-card--highlight">
+            <span class="admin-stat-value" id="admin-stat-orders-new">0</span>
+            <span class="admin-stat-label" data-i18n="admin.statNew">Yeni</span>
+          </div>
+        </div>
+        <section class="admin-section">
+          <div class="admin-toolbar">
+            <label class="admin-filter-label">
+              <span data-i18n="admin.filterStatus">Durum filtresi</span>
+              <select id="admin-orders-filter" class="admin-filter-select">
+                <option value="" data-i18n="admin.filterAll">Tümü</option>
+                <option value="yeni" data-i18n="admin.statusNew">Yeni</option>
+                <option value="işlemde" data-i18n="admin.statusInProgress">İşlemde</option>
+                <option value="tamamlandı" data-i18n="admin.statusDone">Tamamlandı</option>
+                <option value="iptal" data-i18n="admin.statusCancelled">İptal</option>
+              </select>
+            </label>
+            <button type="button" class="btn btn-ghost btn-sm" id="admin-orders-refresh" data-i18n="admin.refresh" title="Yenile">Yenile</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th data-i18n="admin.tableDate">Tarih</th>
+                  <th data-i18n="admin.tableCustomer">Müşteri</th>
+                  <th data-i18n="admin.tablePackage">Paket</th>
+                  <th data-i18n="admin.tableDetail">Detay / Seçenekler</th>
+                  <th data-i18n="admin.tableTotal">Toplam</th>
+                  <th data-i18n="admin.tableStatus">Durum</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-tbody">
+                <tr><td colspan="6" class="admin-table-empty">Yükleniyor…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="admin-orders-empty" class="admin-list-empty" style="display:none;" data-i18n="admin.emptyOrders">Henüz sipariş yok.</div>
+        </section>
+      </div>
+
+      <!-- Yapılan İşler (portfolio) görünümü -->
+      <div id="admin-view-portfolio" class="admin-view">
+      <header class="admin-header">
+        <h1 data-i18n="admin.panelTitle">Yapılan İşler</h1>
+        <p data-i18n="admin.panelDesc">Portfolio öğelerini ekleyin, düzenleyin veya silin.</p>
+      </header>
+      <div class="admin-stats" id="admin-portfolio-stats">
+        <div class="admin-stat-card">
+          <span class="admin-stat-value" id="admin-stat-portfolio-total">0</span>
+          <span class="admin-stat-label">Toplam öğe</span>
+        </div>
+      </div>
+
+      <section class="admin-section admin-section--card">
+        <h2 data-i18n="admin.addNew">Yeni iş ekle</h2>
+        <form id="admin-form" class="admin-form">
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label for="admin-title" data-i18n="admin.titleLabel">Başlık *</label>
+              <input type="text" id="admin-title" name="title" required data-i18n-placeholder="admin.titlePlaceholder" placeholder="Örn: XYZ Mağaza Kurulumu" />
+            </div>
+            <div class="admin-form-group">
+              <label for="admin-category" data-i18n="admin.category">Kategori</label>
+              <select id="admin-category" name="category">
+                <option value="website" data-i18n="admin.categoryWebsite">Website</option>
+                <option value="photo" data-i18n="admin.categoryPhoto">Fotoğraf / Video</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-description" data-i18n="admin.description">Açıklama</label>
+            <textarea id="admin-description" name="description" rows="3" data-i18n-placeholder="admin.descriptionPlaceholder" placeholder="Kısa açıklama (isteğe bağlı)"></textarea>
+          </div>
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label for="admin-link" data-i18n="admin.link">Proje linki (URL)</label>
+              <input type="url" id="admin-link" name="link" data-i18n-placeholder="admin.linkPlaceholder" placeholder="https://..." />
+              <span class="admin-form-hint" data-i18n="admin.linkHint">Website için: tıklanınca önizlemede açılır</span>
+            </div>
+            <div class="admin-form-group" id="admin-group-image">
+              <label for="admin-image" data-i18n="admin.coverImage">Kapak görseli</label>
+              <input type="file" id="admin-image" name="image" accept="image/*" />
+              <span class="admin-form-hint" data-i18n="admin.coverHint">Website önizleme veya kapak, max 200 MB</span>
+            </div>
+          </div>
+          <div class="admin-form-group" id="admin-group-media" style="display:none;">
+            <label for="admin-media" data-i18n="admin.mediaLabel">Fotoğraf / Video (çoklu)</label>
+            <input type="file" id="admin-media" name="media" accept="image/*,video/*" multiple />
+            <span class="admin-form-hint" data-i18n="admin.mediaHint">Birden fazla fotoğraf ve video seçebilirsiniz. Max 200 MB/dosya.</span>
+            <div id="admin-media-previews" class="admin-media-previews"></div>
+          </div>
+          <div class="admin-form-actions">
+            <button type="submit" class="btn btn-primary" id="admin-submit" data-i18n="admin.add">Ekle</button>
+            <button type="button" class="btn btn-ghost" id="admin-cancel-edit" style="display:none;" data-i18n="admin.cancel">İptal</button>
+          </div>
+        </form>
+        <input type="hidden" id="admin-edit-id" value="" />
+      </section>
+
+      <section class="admin-section admin-section--card">
+        <h2 data-i18n="admin.listTitle">Mevcut işler</h2>
+        <div id="admin-list" class="admin-list">
+          <div id="admin-list-loading" class="admin-list-loading" data-i18n="admin.listLoading">Yükleniyor…</div>
+          <div id="admin-list-empty" class="admin-list-empty" style="display:none;" data-i18n="admin.listEmpty">Henüz öğe yok. Yukarıdan ekleyin.</div>
+        </div>
+      </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="/i18n.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

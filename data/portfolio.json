@@ -1,0 +1,40 @@
+[
+  {
+    "id": "168135dc-9cbb-428e-9a05-474cf1ea51b3",
+    "title": "Istanbul Fashion Center",
+    "description": "B2B Toptan Ticaret Sitesi",
+    "category": "website",
+    "imageUrl": "",
+    "link": "https://istanbulfashioncenter.com",
+    "createdAt": "2026-03-11T14:20:44.351Z"
+  },
+  {
+    "id": "dd8718d3-78a7-4a21-a3fa-4127c0c2563f",
+    "title": "Delfiee",
+    "description": "B2B Toptan Ticaret Sitesi",
+    "category": "website",
+    "imageUrl": "",
+    "link": "https://delfiee.com",
+    "createdAt": "2026-03-11T14:36:36.736Z",
+    "updatedAt": "2026-03-11T15:51:24.414Z"
+  },
+  {
+    "id": "62fd74e9-ea2f-43a6-8982-ed2c3a408a69",
+    "title": "Barhion",
+    "description": "B2C Perakende Ticaret Sitesi",
+    "category": "website",
+    "imageUrl": "",
+    "link": "https://barhion.com.au",
+    "createdAt": "2026-03-11T15:51:15.968Z",
+    "updatedAt": "2026-03-11T15:51:36.288Z"
+  },
+  {
+    "id": "ef500070-8dbd-40fe-8414-b55fc6497ca2",
+    "title": "Brand Mila",
+    "description": "B2C Perakende Ticaret Sitesi",
+    "category": "website",
+    "imageUrl": "",
+    "link": "https://brandmila.com",
+    "createdAt": "2026-03-11T15:53:16.641Z"
+  }
+]
