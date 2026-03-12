@@ -276,10 +276,23 @@
   choiceEl.classList.add('portfolio-choice--hidden');
   resultsEl.classList.add('portfolio-results--hidden');
 
-  fetch('/api/portfolio')
-    .then(function (r) { return r.json(); })
+  function loadPortfolioItems() {
+    return fetch('/api/portfolio')
+      .then(function (r) {
+        if (r.ok) return r.json();
+        throw new Error('API not available');
+      })
+      .catch(function () {
+        return fetch('/data/portfolio.json').then(function (r) {
+          if (r.ok) return r.json();
+          throw new Error('Data not found');
+        });
+      });
+  }
+
+  loadPortfolioItems()
     .then(function (items) {
-      allItems = items || [];
+      allItems = Array.isArray(items) ? items : [];
       loading.classList.add('portfolio-loading--hidden');
       var cat = getCategoryFromPath();
       if (cat) {
